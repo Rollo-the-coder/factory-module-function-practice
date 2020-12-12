@@ -56,18 +56,21 @@ const damage = (a, b) => a + b;
 const number = () => {
     console.log("Hello module test")
 };
-const private = () => {
+const _privateFunction = () => {
     console.log("this is private")
 }
+const _privateVariable = ("THis is secure")
 const revealPrivate = () => {
-    console.log(private.text);
+    console.log(_privateFunction);
 }
+const revealPrivateVariable = _privateVariable
 
 return {
-    damage, number, revealPrivate,
+    damage, number, revealPrivate, revealPrivateVariable
 };
 })();
 
 modulePatternTest.damage(2,2)
 modulePatternTest.number();
 modulePatternTest.revealPrivate();
+console.log(modulePatternTest.revealPrivateVariable);
